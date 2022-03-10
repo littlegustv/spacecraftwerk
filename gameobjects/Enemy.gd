@@ -18,7 +18,8 @@ func _physics_process(delta):
 func _on_ShootTimer_timeout():
 	var b = BULLET.instance()
 	b.position = position
-	b.direction = Vector2.DOWN
+	b.direction = ( Globals.player.position - position ).normalized()
+	b.rotation = b.direction.angle() - PI / 2
 	b.SPEED = 150
 	get_tree().current_scene.add_child( b )
 	b.set_source( self )
