@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://combat/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/piercing bullet.png" type="Texture" id=2]
+[ext_resource path="res://combat/PiercingBullet.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.0
+height = 6.0
+
+[node name="PiercingBullet" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+base_damage = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+texture = ExtResource( 2 )
+frame = 2
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

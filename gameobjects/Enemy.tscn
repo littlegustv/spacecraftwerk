@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameobjects/Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameobjects/enemies/saucer.png" type="Texture" id=2]
+[ext_resource path="res://gameobjects/Enemy.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Down"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
+
+[node name="Enemy" groups=[
+"Enemies",
+] instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+direction = Vector2( 0, 1 )
+SPEED = 75
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Down = SubResource( 1 )
+
+[node name="HurtBox" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="ShootTimer" type="Timer" parent="." index="3"]
+wait_time = 1.5
+autostart = true
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
