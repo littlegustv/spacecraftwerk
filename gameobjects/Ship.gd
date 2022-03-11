@@ -15,8 +15,9 @@ export ( int ) var max_health : int = 50
 var health : int = max_health
 var evasion : int = 10
 var regen : int = 1
+var alive : bool = true
 
-onready var items = $Items
+onready var items = $CanvasLayer/VBoxContainer/Items
 
 func proc( proc_chance : float, target = null ):
 	for item in items.get_children():
@@ -54,6 +55,7 @@ func evasion():
 	return e
 
 func hurt( damage : int ):
+	print('very odd! ', health, ' - ', damage )
 	health -= damage
 	var text_fx = TEXTFX.instance()
 	text_fx.position = global_position
@@ -69,12 +71,17 @@ func die():
 	var explosion = EXPLOSION.instance()
 	explosion.position = position
 	get_tree().current_scene.add_child( explosion )
+#	alive = false
+#	visible = false
 	queue_free()
 
 func _on_HurtBox_area_entered(area):
 	if randi() % 100 > evasion():
 		var damage = area.get_parent().damage()
-		hurt( damage )
+		if damage:
+			hurt( damage )
+		else:
+			return
 	else:
 		var text = TEXTFX.instance()
 		text.position = position

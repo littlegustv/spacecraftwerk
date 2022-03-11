@@ -38,3 +38,12 @@ func _physics_process(delta):
 		direction.x -= 1
 
 	._physics_process( delta )
+
+func _on_ItemPickupRadius_area_entered(area):
+	for item in items.get_children():
+		if item.filename == area.item.resource_path:
+			item.stack()
+			area.queue_free()
+			return
+	items.add_child( area.item.instance() )
+	area.queue_free()

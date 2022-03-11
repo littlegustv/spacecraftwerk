@@ -28,52 +28,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 5120 )
 
 [node name="Ship" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 232 )
+position = Vector2( -104, -336 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( -104, -440 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -48, -408 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 48, -480 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 104, -368 )
-
-[node name="Enemy5" parent="." instance=ExtResource( 3 )]
-position = Vector2( -64, -528 )
-
-[node name="Enemy6" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, -496 )
-
-[node name="Enemy7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, -568 )
-
-[node name="Enemy8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 144, -456 )
-
-[node name="Enemy9" parent="." instance=ExtResource( 3 )]
-position = Vector2( -80, -624 )
-
-[node name="Enemy10" parent="." instance=ExtResource( 3 )]
-position = Vector2( -24, -592 )
-
-[node name="Enemy11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 72, -664 )
-
-[node name="Enemy12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, -552 )
-
-[node name="Enemy13" parent="." instance=ExtResource( 3 )]
-position = Vector2( -64, -704 )
-
-[node name="Enemy14" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, -672 )
-
-[node name="Enemy15" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, -744 )
-
-[node name="Enemy16" parent="." instance=ExtResource( 3 )]
-position = Vector2( 144, -632 )

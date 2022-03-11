@@ -1,9 +1,18 @@
 extends "res://gameobjects/Ship.gd"
 
 const BULLET = preload("res://combat/Bullet.tscn")
+const ITEM_PICKUP = preload("res://gameobjects/items/ItemPickup.tscn")
+
 var desired_offset : Vector2 = Vector2( randi() % 32 - 16, -32 - randi() % 64 )
 
 onready var shoot_timer = $ShootTimer
+
+func die():
+	if randi() % 100 < 10:
+		var item_pickup = ITEM_PICKUP.instance()
+		item_pickup.position = position
+		get_tree().current_scene.add_child( item_pickup )
+	.die()
 
 func _ready():
 	SPEED = randi() % 40 + 20

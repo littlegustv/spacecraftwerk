@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://gameobjects/Player.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/Ship.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://gameobjects/items/TeddyBear.tscn" type="PackedScene" id=11]
 [ext_resource path="res://gameobjects/items/BustlingFungus.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gameobjects/items/GoatHoof.tscn" type="PackedScene" id=13]
+[ext_resource path="res://gameobjects/HitBox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/Font.tres" type="DynamicFont" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Up"
@@ -33,6 +35,9 @@ tracks/0/keys = {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 4.0
 height = 0.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -56,31 +61,6 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource( 2 )
 
-[node name="BasicSecondary" parent="." index="4" instance=ExtResource( 5 )]
-
-[node name="BasicSpecial" parent="." index="5" instance=ExtResource( 6 )]
-
-[node name="BasicUtility" parent="." index="6" instance=ExtResource( 7 )]
-
-[node name="HuntressPrimary" parent="." index="8" instance=ExtResource( 4 )]
-
-[node name="AttackMissile" parent="Items" index="0" instance=ExtResource( 8 )]
-
-[node name="BleedDagger" parent="Items" index="1" instance=ExtResource( 9 )]
-
-[node name="CritGlasses" parent="Items" index="2" instance=ExtResource( 10 )]
-
-[node name="TeddyBear" parent="Items" index="3" instance=ExtResource( 11 )]
-
-[node name="BustlingFungus" parent="Items" index="4" instance=ExtResource( 12 )]
-
-[node name="GoatHoof" parent="Items" index="5" instance=ExtResource( 13 )]
-
-[node name="Ticker" parent="." index="11"]
-wait_time = 1.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
-
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,7 +81,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBar" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer" index="0"]
+[node name="Abilities" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" index="0"]
+margin_top = 225.0
+margin_right = 248.0
+margin_bottom = 240.0
+alignment = 2
+
+[node name="HuntressPrimary" parent="CanvasLayer/HBoxContainer/VBoxContainer/Abilities" index="0" instance=ExtResource( 4 )]
+margin_left = 176.0
+margin_right = 191.0
+margin_bottom = 15.0
+
+[node name="BasicSecondary" parent="CanvasLayer/HBoxContainer/VBoxContainer/Abilities" index="1" instance=ExtResource( 5 )]
+margin_left = 195.0
+margin_right = 210.0
+margin_bottom = 15.0
+
+[node name="BasicSpecial" parent="CanvasLayer/HBoxContainer/VBoxContainer/Abilities" index="2" instance=ExtResource( 6 )]
+margin_left = 214.0
+margin_right = 229.0
+margin_bottom = 15.0
+
+[node name="BasicUtility" parent="CanvasLayer/HBoxContainer/VBoxContainer/Abilities" index="3" instance=ExtResource( 7 )]
+margin_left = 233.0
+margin_right = 248.0
+margin_bottom = 15.0
+
+[node name="HealthBar" type="ColorRect" parent="CanvasLayer/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 244.0
 margin_right = 248.0
 margin_bottom = 252.0
@@ -120,6 +126,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/HealthBar" index="1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 15 )
 text = "10 / 10"
 align = 1
 valign = 1
@@ -127,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" index="1"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer" index="2"]
 margin_top = 256.0
 margin_right = 248.0
 margin_bottom = 256.0
@@ -136,3 +143,46 @@ margin_bottom = 256.0
 margin_left = 256.0
 margin_right = 256.0
 margin_bottom = 256.0
+
+[node name="Items" parent="CanvasLayer/VBoxContainer" index="0"]
+margin_bottom = 7.0
+
+[node name="AttackMissile" parent="CanvasLayer/VBoxContainer/Items" index="0" instance=ExtResource( 8 )]
+margin_right = 7.0
+margin_bottom = 7.0
+
+[node name="CritGlasses" parent="CanvasLayer/VBoxContainer/Items" index="1" instance=ExtResource( 10 )]
+margin_left = 11.0
+margin_right = 18.0
+margin_bottom = 7.0
+
+[node name="BleedDagger" parent="CanvasLayer/VBoxContainer/Items" index="2" instance=ExtResource( 9 )]
+margin_left = 22.0
+margin_right = 29.0
+margin_bottom = 7.0
+
+[node name="TeddyBear" parent="CanvasLayer/VBoxContainer/Items" index="3" instance=ExtResource( 11 )]
+margin_left = 33.0
+margin_right = 40.0
+margin_bottom = 7.0
+
+[node name="BustlingFungus" parent="CanvasLayer/VBoxContainer/Items" index="4" instance=ExtResource( 12 )]
+margin_left = 44.0
+margin_right = 51.0
+margin_bottom = 7.0
+
+[node name="GoatHoof" parent="CanvasLayer/VBoxContainer/Items" index="5" instance=ExtResource( 13 )]
+margin_left = 55.0
+margin_right = 62.0
+margin_bottom = 7.0
+
+[node name="Ticker" parent="." index="7"]
+wait_time = 1.0
+
+[node name="ItemPickupRadius" parent="." index="8" instance=ExtResource( 14 )]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickupRadius" index="0"]
+shape = SubResource( 3 )
+[connection signal="area_entered" from="ItemPickupRadius" to="." method="_on_ItemPickupRadius_area_entered"]

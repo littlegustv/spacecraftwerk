@@ -1,8 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameobjects/items/Item.gd" type="Script" id=1]
+[ext_resource path="res://gameobjects/items/default item.png" type="Texture" id=2]
+[ext_resource path="res://ui/Font.tres" type="DynamicFont" id=3]
 
-[node name="Item" type="Node2D"]
+[node name="Item" type="TextureRect"]
+texture = ExtResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = 5.5
+margin_right = 6.5
+margin_bottom = 12.5
+custom_fonts/font = ExtResource( 3 )
+text = "1"
+align = 1
+valign = 1
 [connection signal="tree_entered" from="." to="." method="_on_Item_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_Item_tree_exited"]
