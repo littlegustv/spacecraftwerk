@@ -69,9 +69,8 @@ func heal( amount : int ):
 func die():
 	var explosion = EXPLOSION.instance()
 	explosion.position = position
-	get_tree().current_scene.add_child( explosion )
-#	alive = false
-#	visible = false
+	if get_tree():
+		get_tree().current_scene.add_child( explosion )
 	queue_free()
 
 func _on_HurtBox_area_entered(area):

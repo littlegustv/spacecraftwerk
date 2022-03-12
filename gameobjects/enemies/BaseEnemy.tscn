@@ -10,6 +10,7 @@ radius = 8.0
 "Enemies",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+bounty = 2
 
 [node name="HurtBox" parent="." index="2"]
 collision_layer = 0

@@ -8,6 +8,8 @@
 script = ExtResource( 2 )
 SPEED = 24
 ACCELERATION = 0.4
+cost = 3
+bounty = 4
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

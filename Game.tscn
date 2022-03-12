@@ -28,3 +28,7 @@ region_rect = Rect2( 0, 0, 2048, 5120 )
 
 [node name="Ship" parent="." instance=ExtResource( 2 )]
 position = Vector2( -104, -336 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

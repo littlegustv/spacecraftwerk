@@ -22,4 +22,5 @@ func die():
 		var item_pickup = ITEM_PICKUP.instance()
 		item_pickup.position = position
 		get_tree().current_scene.add_child( item_pickup )
+	Globals.game.enemy_die( self )
 	.die()

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://ui/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://gameobjects/player/HAbilities.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gameobjects/player/CAbilities.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gameobjects/player/Ship H.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gameobjects/player/Ship C.tscn" type="PackedScene" id=4]
 
 [node name="MainMenu" type="HBoxContainer"]
 anchor_right = 1.0
@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-ships = [ ExtResource( 3 ), ExtResource( 4 ) ]
+ships = [ ExtResource( 4 ), ExtResource( 3 ) ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 95.0

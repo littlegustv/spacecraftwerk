@@ -7,6 +7,8 @@
 [node name="Stealth" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 SPEED = 64
+cost = 2
+bounty = 3
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

@@ -12,4 +12,5 @@ func get_closest( p : Vector2, group : String, exclude : Array = [] ):
 	return closest_target
 
 var player
+var game
 var player_abilities

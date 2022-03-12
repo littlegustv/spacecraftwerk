@@ -7,4 +7,4 @@ func _physics_process(delta):
 		var b = BULLET.instance()
 		b.position = parent.global_position
 		get_tree().current_scene.add_child( b )
-		b.hitbox.collision_layer = 2
+		b.set_source( parent )
