@@ -18,6 +18,7 @@ var regen : int = 1
 var alive : bool = true
 
 onready var items = $CanvasLayer/VBoxContainer/Items
+onready var sprite = $Sprite
 
 func proc( proc_chance : float, target = null ):
 	for item in items.get_children():

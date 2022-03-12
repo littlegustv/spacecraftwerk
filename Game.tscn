@@ -18,6 +18,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 5120 )
 
 [node name="SpaceTop" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_scale = Vector2( 0.6, 0.6 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/SpaceTop"]

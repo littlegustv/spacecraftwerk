@@ -18,7 +18,7 @@ func _physics_process(delta):
 
 func die():
 	Globals.player.score += bounty
-	if randi() % 100 < 25:
+	if randi() % 100 < 50:
 		var item_pickup = ITEM_PICKUP.instance()
 		item_pickup.position = position
 		get_tree().current_scene.add_child( item_pickup )
