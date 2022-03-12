@@ -7,11 +7,18 @@ onready var space_top_layer = $ParallaxBackground/SpaceTop
 onready var space_top_sprite = $ParallaxBackground/SpaceTop/Sprite
 
 const MAX_ENEMIES = 10
-const ENEMY = preload("res://gameobjects/Enemy.tscn")
+
+const ENEMIES = [
+	preload("res://gameobjects/enemies/Saucer.tscn"),
+	preload("res://gameobjects/enemies/Diamond.tscn"),
+	preload("res://gameobjects/enemies/Stealth.tscn"),
+	preload("res://gameobjects/enemies/MantaRay.tscn"),
+	preload("res://gameobjects/enemies/Enterprise.tscn")
+]
 
 func spawn_enemies():
 	if get_tree().get_nodes_in_group("Enemies").size() < MAX_ENEMIES:
-		var enemy = ENEMY.instance()
+		var enemy = ENEMIES[ randi() % ENEMIES.size() ].instance()
 		enemy.position = Globals.player.position + Vector2.ONE * ( randi() % 2048 - 1024 )
 		get_tree().current_scene.add_child( enemy )
 

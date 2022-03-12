@@ -5,6 +5,8 @@ onready var health_bar = $CanvasLayer/HBoxContainer/AbilitiesContainer/HealthBar
 onready var health_bar_label = $CanvasLayer/HBoxContainer/AbilitiesContainer/HealthBar/Label
 onready var abilities_container = $CanvasLayer/HBoxContainer/AbilitiesContainer
 
+var score : float = 0.0
+
 func _ready():
 #	animation_player.play("Up")
 	Globals.player = self

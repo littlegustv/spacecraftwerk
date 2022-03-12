@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gameobjects/enemies/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameobjects/enemies/Enterprise.gd" type="Script" id=2]
+[ext_resource path="res://gameobjects/enemies/enterprise.png" type="Texture" id=3]
+
+[node name="Enterprise" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+SPEED = 16
+ACCELERATION = 0.2
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="ActionTimer" parent="." index="7"]
+wait_time = 5.0
+[connection signal="timeout" from="ActionTimer" to="." method="_on_ActionTimer_timeout"]

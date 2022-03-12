@@ -23,21 +23,21 @@ margin_bottom = 256.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 105.0
+margin_top = 107.0
 margin_right = 66.0
-margin_bottom = 112.0
+margin_bottom = 114.0
 text = "SpaceCraftWerk"
 align = 1
 valign = 1
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
-margin_top = 116.0
+margin_top = 118.0
 margin_right = 66.0
-margin_bottom = 134.0
+margin_bottom = 131.0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 138.0
+margin_top = 135.0
 margin_right = 66.0
-margin_bottom = 151.0
+margin_bottom = 148.0
 text = "Play"
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export ( Vector2 ) var direction = Vector2.ZERO
 export ( int ) var SPEED = 200
-export ( int ) var ACCELERATION = 1.0
+export ( float ) var ACCELERATION = 1.0
 export ( int ) var attack_collision_layer = 1
 export ( int ) var base_damage = 10
 
@@ -12,7 +12,7 @@ const EXPLOSION = preload("res://fx/Explosion.tscn")
 const TEXTFX = preload("res://fx/TextFX.tscn")
 
 export ( int ) var max_health : int = 50
-var health : int = max_health
+onready var health : int = max_health
 var evasion : int = 10
 var regen : int = 1
 var alive : bool = true

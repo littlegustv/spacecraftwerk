@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gameobjects/Player.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/Ship.tscn" type="PackedScene" id=2]
@@ -29,10 +29,15 @@ height = 0.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 6.08276
+
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-SPEED = 150
+SPEED = 80
+ACCELERATION = 0.5
 attack_collision_layer = 2
+max_health = 150
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )
@@ -129,4 +134,11 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickupRadius" index="0"]
 shape = SubResource( 3 )
+
+[node name="BeamHurtBox" parent="." index="9" instance=ExtResource( 14 )]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeamHurtBox" index="0"]
+shape = SubResource( 4 )
 [connection signal="area_entered" from="ItemPickupRadius" to="." method="_on_ItemPickupRadius_area_entered"]
