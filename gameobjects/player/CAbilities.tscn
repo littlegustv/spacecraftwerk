@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gameobjects/player/abilities/BasicSecondary.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameobjects/player/abilities/BasicSpecial.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gameobjects/player/abilities/BasicUtility.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gameobjects/player/abilities/BasicPrimary.tscn" type="PackedScene" id=4]
+
+[node name="Abilities" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BasicPrimary" parent="." instance=ExtResource( 4 )]
+margin_right = 15.0
+margin_bottom = 40.0
+
+[node name="BasicSecondary" parent="." instance=ExtResource( 1 )]
+margin_left = 19.0
+margin_right = 34.0
+margin_bottom = 40.0
+
+[node name="BasicUtility" parent="." instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_right = 53.0
+margin_bottom = 40.0
+
+[node name="BasicSpecial" parent="." instance=ExtResource( 2 )]
+margin_left = 57.0
+margin_right = 72.0
+margin_bottom = 40.0

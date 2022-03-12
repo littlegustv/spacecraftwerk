@@ -3,6 +3,9 @@ extends "res://gameobjects/items/Item.gd"
 var not_moving_counter = 0
 const TEXT = preload("res://fx/TextFX.tscn")
 
+func tooltip_message():
+	hint_tooltip = "Regen " + str( 2.0 + 2.0 * stack ) + " faster when stationary."
+
 func modify( stat : String, proc_chance : float ):
 	if stat == "regen" and not_moving_counter >= 4:
 		var text = TEXT.instance()

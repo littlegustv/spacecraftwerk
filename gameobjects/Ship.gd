@@ -55,7 +55,6 @@ func evasion():
 	return e
 
 func hurt( damage : int ):
-	print('very odd! ', health, ' - ', damage )
 	health -= damage
 	var text_fx = TEXTFX.instance()
 	text_fx.position = global_position

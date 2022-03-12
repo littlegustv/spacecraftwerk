@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gameobjects/player/abilities/Ability.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameobjects/player/abilities/HUtility.gd" type="Script" id=2]
+[ext_resource path="res://gameobjects/player/abilities/h utility.png" type="Texture" id=3]
+
+[node name="HUtility" instance=ExtResource( 1 )]
+hint_tooltip = "3 charge blink towards current direction."
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+max_charges = 3
+distance = 65
+
+[node name="Cooldown" parent="." index="0"]
+wait_time = 7.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]

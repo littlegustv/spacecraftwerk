@@ -1,12 +1,15 @@
 extends "res://gameobjects/Ship.gd"
 
 onready var animation_player = $AnimationPlayer
-onready var health_bar = $CanvasLayer/HBoxContainer/VBoxContainer/HealthBar
-onready var health_bar_label = $CanvasLayer/HBoxContainer/VBoxContainer/HealthBar/Label
+onready var health_bar = $CanvasLayer/HBoxContainer/AbilitiesContainer/HealthBar
+onready var health_bar_label = $CanvasLayer/HBoxContainer/AbilitiesContainer/HealthBar/Label
+onready var abilities_container = $CanvasLayer/HBoxContainer/AbilitiesContainer
 
 func _ready():
 #	animation_player.play("Up")
 	Globals.player = self
+	abilities_container.add_child( Globals.player_abilities )
+	abilities_container.move_child( Globals.player_abilities, 0)
 
 func update_health_bar():
 	health_bar.rect_size.x = 248 * health / max_health
@@ -24,7 +27,7 @@ func die():
 	var explosion = EXPLOSION.instance()
 	explosion.position = position
 	get_tree().current_scene.add_child( explosion )
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://MainMenu.tscn")
 
 func _physics_process(delta):
 	direction = Vector2.ZERO

@@ -8,7 +8,7 @@ var desired_offset : Vector2 = Vector2( randi() % 32 - 16, -32 - randi() % 64 )
 onready var shoot_timer = $ShootTimer
 
 func die():
-	if randi() % 100 < 10:
+	if randi() % 100 < 25:
 		var item_pickup = ITEM_PICKUP.instance()
 		item_pickup.position = position
 		get_tree().current_scene.add_child( item_pickup )

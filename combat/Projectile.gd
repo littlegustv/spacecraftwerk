@@ -21,10 +21,10 @@ func damage():
 func _physics_process(delta):
 	position += SPEED * delta * direction
 
-func on_hit():
+func on_hit( target = null ):
 	pass
 
 func _on_HitBox_area_entered(area):
 	if source != null:
 		source.proc( proc_chance, area.get_parent() )
-	on_hit()
+	on_hit( area.get_parent() )

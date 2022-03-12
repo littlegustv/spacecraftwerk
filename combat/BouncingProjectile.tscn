@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://combat/Projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://combat/BouncingProjectile.gd" type="Script" id=2]
+[ext_resource path="res://combat/glaive.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[node name="BouncingProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+SPEED = 180
+turn_rate = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+texture = ExtResource( 3 )

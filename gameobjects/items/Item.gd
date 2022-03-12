@@ -5,11 +5,18 @@ onready var parent = get_parent().get_parent().get_parent().get_parent()
 onready var stack_label = $Label
 var stack : int = 1
 
+func _ready():
+	tooltip_message()
+
+func tooltip_message():
+	pass
+
 func stack():
 	stack += 1
 	stack_label.text = str( stack )
 	if stack > 1:
 		stack_label.visible = true
+	tooltip_message()
 
 func modify( stat : String, proc_chance : float ):
 	return 1.0

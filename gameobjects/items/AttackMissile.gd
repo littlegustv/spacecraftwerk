@@ -3,6 +3,9 @@ extends "res://gameobjects/items/Item.gd"
 const TEXTFX = preload("res://fx/TextFX.tscn")
 const MISSILE = preload("res://combat/HomingMissile.tscn")
 
+func tooltip_message():
+	hint_tooltip = "Chance to fire missile on hit for " + str( 3 * stack * 100 ) + "% damage."
+
 func proc( proc_chance : float, target = null ):
 	if randi() % 100 < 10 * proc_chance:
 		var text = TEXTFX.instance()

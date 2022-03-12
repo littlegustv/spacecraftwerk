@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameobjects/items/Item.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/items/default item.png" type="Texture" id=2]
 [ext_resource path="res://ui/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/ui_theme.tres" type="Theme" id=4]
 
 [node name="Item" type="TextureRect"]
+hint_tooltip = "Item"
+theme = ExtResource( 4 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {

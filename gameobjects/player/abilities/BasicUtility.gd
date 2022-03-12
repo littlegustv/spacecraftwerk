@@ -19,7 +19,6 @@ func _ready():
 	animation_player.add_animation("Blink", blink_animation)
 
 func blink():
-	print('hey!!')
 	var destination = parent.get_global_mouse_position()
 	parent.position = destination
 
