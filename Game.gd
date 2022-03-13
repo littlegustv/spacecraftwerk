@@ -6,7 +6,7 @@ onready var space_bottom_sprite = $ParallaxBackground/SpaceBottom/Sprite
 onready var space_top_layer = $ParallaxBackground/SpaceTop
 onready var space_top_sprite = $ParallaxBackground/SpaceTop/Sprite
 
-var budget : float = 3.0
+var budget : float = 10.0
 var enemies_unlocked : float = 5.0
 
 const PLAYER = preload("res://gameobjects/Player.tscn")
@@ -30,8 +30,8 @@ func _ready():
 	player.position = Vector2.ZERO
 	get_tree().current_scene.add_child( player )
 	
-	spawn_enemies()
-	spawn_enemies()
+	for i in range(0, 5):
+		spawn_enemies()
 
 func spawn_enemies():
 	if budget > 0:

@@ -17,8 +17,9 @@ var evasion : int = 10
 var regen : int = 1
 var alive : bool = true
 
-onready var items = $CanvasLayer/VBoxContainer/Items
+onready var items = $CanvasLayer/VBoxContainer/HBoxContainer/Items
 onready var sprite = $Sprite
+onready var hit_sound  = $HitSound
 
 func proc( proc_chance : float, target = null ):
 	for item in items.get_children():
@@ -63,6 +64,8 @@ func hurt( damage : int ):
 	text_fx.label.text = str( damage )
 	if health <= 0:
 		die()
+	else:
+		hit_sound.play()
 
 func heal( amount : int ):
 	health = min( max_health, health + amount )
@@ -78,6 +81,7 @@ func _on_HurtBox_area_entered(area):
 	if randi() % 100 > evasion():
 		var damage = area.get_parent().damage()
 		if damage:
+			area.get_parent().source.dps( damage )
 			hurt( damage )
 		else:
 			return
@@ -86,6 +90,9 @@ func _on_HurtBox_area_entered(area):
 		text.position = position
 		get_tree().current_scene.add_child( text )
 		text.label.text = "dodged!"
+
+func dps ( damage ):
+	pass
 
 func _on_Ticker_timeout():
 	heal( regen() )

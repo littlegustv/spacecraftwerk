@@ -1,7 +1,7 @@
 extends TextureRect
 
 # hboxcontainer -> vboxcontainer -> canvaslayer -> player
-onready var parent = get_parent().get_parent().get_parent().get_parent()
+onready var parent = get_parent().get_parent().get_parent().get_parent().get_parent()
 onready var stack_label = $Label
 var stack : int = 1
 

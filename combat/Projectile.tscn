@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://combat/Projectile.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/HitBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sounds/shoot.wav" type="AudioStream" id=4]
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,4 +10,9 @@ script = ExtResource( 1 )
 [node name="HitBox" parent="." instance=ExtResource( 2 )]
 collision_layer = 0
 collision_mask = 0
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+max_distance = 320.0
+bus = "Sounds"
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

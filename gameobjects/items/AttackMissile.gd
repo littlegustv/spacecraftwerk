@@ -16,6 +16,7 @@ func proc( proc_chance : float, target = null ):
 		var missile = MISSILE.instance()
 		missile.position = parent.global_position
 		missile.proc_chance = missile.proc_chance * proc_chance
+		missile.SPEED = 50
 		missile.target = Globals.get_closest( Globals.player.position, "Enemies" )
 		get_tree().current_scene.add_child( missile )
 		missile.set_source( parent ) # must be a better way!

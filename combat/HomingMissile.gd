@@ -8,7 +8,8 @@ func _physics_process(delta):
 		rotation = direction.angle() - PI / 2
 		direction = lerp( direction, ( target.position - position ).normalized(), turn_rate * delta )
 	else:
-		queue_free()
+		target = Globals.get_closest( Globals.player.position, "Enemies" )
+#		queue_free()
 	._physics_process(delta)
 
 func on_hit( target = null ):

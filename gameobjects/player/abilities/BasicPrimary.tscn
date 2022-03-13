@@ -5,6 +5,7 @@
 [ext_resource path="res://gameobjects/player/abilities/c primary.png" type="Texture" id=3]
 
 [node name="BasicPrimary" instance=ExtResource( 1 )]
+hint_tooltip = "[Left Click] Rapid primary fire"
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 

@@ -5,6 +5,7 @@ onready var list = $VBoxContainer/OptionButton
 onready var cheat_code = $VBoxContainer/LineEdit
 
 func _ready():
+	get_tree().paused = false
 	for ship in ships:
 		var path = ship.resource_path.rsplit('/')
 		list.add_item( path[ path.size() - 1 ].split('.')[0] )

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameobjects/Ship.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/HitBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fx/particle.png" type="Texture" id=3]
+[ext_resource path="res://sounds/hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://ui/ui_theme.tres" type="Theme" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -28,24 +30,81 @@ shape = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+theme = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Items" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
 margin_right = 256.0
+margin_bottom = 4.0
+rect_min_size = Vector2( 0, 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 8.0
+margin_right = 256.0
+margin_bottom = 26.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_right = 4.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 4, 0 )
+
+[node name="Items" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = 18.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 12.0
+margin_right = 219.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 4, 0 )
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 223.0
+margin_right = 248.0
+margin_bottom = 18.0
+
+[node name="DPS" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 25.0
+margin_bottom = 7.0
+theme = ExtResource( 5 )
+text = "0 DPS"
+align = 2
+
+[node name="Score" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 11.0
+margin_right = 25.0
+margin_bottom = 18.0
+text = "0"
+align = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+margin_left = 252.0
+margin_right = 256.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 4, 0 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-amount = 4
+amount = 12
 lifetime = 0.4
 local_coords = false
 texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 2.0
 gravity = Vector2( 0, 0 )
 color_ramp = SubResource( 2 )
 
 [node name="Ticker" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+max_distance = 320.0
+bus = "Sounds"
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="timeout" from="Ticker" to="." method="_on_Ticker_timeout"]

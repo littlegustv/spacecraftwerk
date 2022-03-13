@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Globals.gd" type="Script" id=1]
+[ext_resource path="res://sounds/soundtrack.ogg" type="AudioStream" id=2]
 
 [node name="Globals" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[node name="GameOverTimer" type="Timer" parent="."]
+pause_mode = 2
+one_shot = true
+[connection signal="finished" from="Soundtrack" to="." method="_on_Soundtrack_finished"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

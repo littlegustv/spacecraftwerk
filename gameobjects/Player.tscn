@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gameobjects/Player.gd" type="Script" id=1]
 [ext_resource path="res://gameobjects/Ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameobjects/player/player.png" type="Texture" id=3]
+[ext_resource path="res://sounds/pickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://gameobjects/HitBox.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/Font.tres" type="DynamicFont" id=15]
 
@@ -118,16 +119,26 @@ margin_left = 256.0
 margin_right = 256.0
 margin_bottom = 256.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" index="0"]
-margin_right = 256.0
+[node name="HBoxContainer" parent="CanvasLayer/VBoxContainer" index="1"]
+margin_bottom = 15.0
 
-[node name="Items" parent="CanvasLayer/VBoxContainer" index="1"]
-margin_top = 4.0
-margin_bottom = 4.0
-mouse_filter = 2
+[node name="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" index="0"]
+margin_bottom = 7.0
 
-[node name="Ticker" parent="." index="7"]
-wait_time = 1.0
+[node name="Items" parent="CanvasLayer/VBoxContainer/HBoxContainer" index="1"]
+margin_bottom = 7.0
+
+[node name="MarginContainer2" parent="CanvasLayer/VBoxContainer/HBoxContainer" index="2"]
+margin_bottom = 7.0
+
+[node name="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" index="3"]
+margin_bottom = 7.0
+
+[node name="Score" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+visible = false
+
+[node name="MarginContainer3" parent="CanvasLayer/VBoxContainer/HBoxContainer" index="4"]
+margin_bottom = 7.0
 
 [node name="ItemPickupRadius" parent="." index="8" instance=ExtResource( 14 )]
 collision_layer = 0
@@ -142,4 +153,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeamHurtBox" index="0"]
 shape = SubResource( 4 )
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." index="11"]
+stream = ExtResource( 4 )
+max_distance = 320.0
+bus = "Sounds"
+
+[node name="DPSTimer" type="Timer" parent="." index="12"]
+wait_time = 0.25
+autostart = true
+
+[node name="ShakeTimer" type="Timer" parent="." index="13"]
+wait_time = 0.5
+one_shot = true
 [connection signal="area_entered" from="ItemPickupRadius" to="." method="_on_ItemPickupRadius_area_entered"]
+[connection signal="timeout" from="DPSTimer" to="." method="_on_DPSTimer_timeout"]
+[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]

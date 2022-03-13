@@ -7,8 +7,13 @@ export (int) var SPEED = 400
 export (Vector2) var direction = Vector2.UP
 
 onready var hitbox = $HitBox
+onready var shoot_sound = $ShootSound
+onready var hit_sound = $HitSound
 
 var source
+
+func _ready():
+	shoot_sound.play()
 
 func set_source( src ):
 	source = src
@@ -17,6 +22,8 @@ func set_source( src ):
 func damage():
 	if source:
 		return source.damage( proc_chance ) * damage_multiplier
+	else:
+		return 0
 
 func _physics_process(delta):
 	position += SPEED * delta * direction

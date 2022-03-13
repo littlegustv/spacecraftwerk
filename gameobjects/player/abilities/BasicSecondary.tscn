@@ -5,7 +5,7 @@
 [ext_resource path="res://gameobjects/player/abilities/c secondary.png" type="Texture" id=3]
 
 [node name="BasicSecondary" instance=ExtResource( 1 )]
-hint_tooltip = "Shoot a single piercing round."
+hint_tooltip = "[Right Click] Shoot a single piercing round."
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 

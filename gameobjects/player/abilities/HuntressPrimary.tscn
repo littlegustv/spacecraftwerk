@@ -5,7 +5,7 @@
 [ext_resource path="res://gameobjects/player/abilities/h primary.png" type="Texture" id=3]
 
 [node name="HuntressPrimary" instance=ExtResource( 1 )]
-hint_tooltip = "Fires a homing attack."
+hint_tooltip = "[Left Click] Fires a homing attack."
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 

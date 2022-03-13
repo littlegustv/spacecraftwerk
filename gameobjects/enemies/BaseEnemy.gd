@@ -18,6 +18,7 @@ func _physics_process(delta):
 
 func die():
 	Globals.player.score += bounty
+	Globals.player.score_label.text = str( floor( Globals.player.score ) )
 	if randi() % 100 < 50 and get_tree():
 		var item_pickup = ITEM_PICKUP.instance()
 		item_pickup.position = position
