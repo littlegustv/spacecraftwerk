@@ -14,10 +14,8 @@ func _ready():
 
 func _on_Button_pressed():
 	Globals.player_abilities = ships[ list.selected ].instance()
-	get_tree().change_scene("res://Game.tscn")
-
-func _on_Button2_pressed():
 	if cheat_code.text == "host":
 		Globals.host()
-	else:
+	elif cheat_code.text != "" and cheat_code.text != null:
 		Globals.join( cheat_code.text )
+	get_tree().change_scene("res://Game.tscn")

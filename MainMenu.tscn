@@ -23,48 +23,42 @@ margin_bottom = 256.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 73.0
+margin_top = 97.0
 margin_right = 66.0
-margin_bottom = 80.0
+margin_bottom = 104.0
 text = "SpaceCraftWerk"
 align = 1
 valign = 1
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
-margin_top = 84.0
+margin_top = 108.0
 margin_right = 66.0
-margin_bottom = 97.0
+margin_bottom = 121.0
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 101.0
+margin_top = 125.0
 margin_right = 66.0
-margin_bottom = 114.0
+margin_bottom = 138.0
 text = "Play"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 118.0
+margin_top = 142.0
 margin_right = 66.0
-margin_bottom = 134.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 138.0
+visible = false
+margin_top = 157.0
 margin_right = 66.0
-margin_bottom = 145.0
+margin_bottom = 164.0
 text = "Cheat Code"
 align = 1
 valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
-margin_top = 149.0
+visible = false
+margin_top = 157.0
 margin_right = 66.0
-margin_bottom = 166.0
-text = "192.168.0.11"
-
-[node name="Button2" type="Button" parent="VBoxContainer"]
-margin_top = 170.0
-margin_right = 66.0
-margin_bottom = 183.0
-text = "Activate"
+margin_bottom = 174.0
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]

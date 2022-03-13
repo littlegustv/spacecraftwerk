@@ -6,6 +6,7 @@ onready var health_bar_label = $CanvasLayer/HBoxContainer/AbilitiesContainer/Hea
 onready var abilities_container = $CanvasLayer/HBoxContainer/AbilitiesContainer
 
 var score : float = 0.0
+var peer : bool = false
 
 func _ready():
 #	animation_player.play("Up")

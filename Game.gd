@@ -9,6 +9,7 @@ onready var space_top_sprite = $ParallaxBackground/SpaceTop/Sprite
 var budget : float = 3.0
 var enemies_unlocked : float = 5.0
 
+const PLAYER = preload("res://gameobjects/Player.tscn")
 const MAX_ENEMIES = 10
 const ENEMIES = [
 	preload("res://gameobjects/enemies/Saucer.tscn"),
@@ -24,6 +25,11 @@ func enemy_die( enemy ):
 
 func _ready():
 	Globals.game = self
+	
+	var player = PLAYER.instance()
+	player.position = Vector2.ZERO
+	get_tree().current_scene.add_child( player )
+	
 	spawn_enemies()
 	spawn_enemies()
 
